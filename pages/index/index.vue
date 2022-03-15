@@ -13,7 +13,8 @@
             :border="true"
             @edit="buttonEdit"
             @dele="dele"
-            :data="data"></zb-table>
+            :data="data">
+        </zb-table>
       </view>
     </uni-card>
     <uni-card title="普通表格" >
@@ -26,7 +27,6 @@
             @rowClick="rowClick"
             @toggleRowSelection="toggleRowSelection"
             @toggleAllSelection="toggleAllSelection"
-
             @edit="buttonEdit"
             @dele="dele"
             :data="data"></zb-table>
