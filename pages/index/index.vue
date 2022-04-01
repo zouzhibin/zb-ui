@@ -1,146 +1,159 @@
 <template>
 	<view class="content">
-    <uni-card title="全部功能" >
-      <view style="height: 300px">
-        <zb-table
-            @sort-change="sortChange"
-            :pullUpLoading="pullUpLoading"
-            :isShowLoadMore="true"
-            :highlight="true"
-            :show-header="true"
-            :columns="column"
-            :fit="false"
-            row-key="id"
-            @rowClick="rowClick"
-            @toggleRowSelection="toggleRowSelection"
-            @toggleAllSelection="toggleAllSelection"
-            :border="true"
-            @custom="custom"
-            @edit="buttonEdit"
-            @dele="dele"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
-    <uni-card title="普通表格" >
-      <view style="height: 200px">
-        <zb-table
-            :columns="column1"
-            :stripe="true"
-            @rowClick="rowClick"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
-    <uni-card title="带边框表格" >
-      <view style="height: 200px">
-        <zb-table
-            :columns="column1"
-            :stripe="true"
-            @rowClick="rowClick"
-            :border="true"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
-    <uni-card title="多选，多行数据时使用 Checkbox" >
-      <view style="height: 200px">
-        <zb-table
-            :columns="column2"
-            :stripe="true"
-            @rowClick="rowClick"
-            @toggleRowSelection="toggleRowSelection"
-            @toggleAllSelection="toggleAllSelection"
-            :border="true"
-            @edit="buttonEdit"
-            @dele="dele"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
-    <uni-card title="固定多列和表头" >
-      <view style="height: 200px">
-        <zb-table
-            :columns="column3"
-            :stripe="true"
-            @rowClick="rowClick"
-            @toggleRowSelection="toggleRowSelection"
-            @toggleAllSelection="toggleAllSelection"
-            :border="true"
-            @edit="buttonEdit"
-            @dele="dele"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
-    <uni-card title="年纪、日期排序" >
-      <view style="height: 200px">
-        <zb-table
-            :show-header="true"
-            :columns="column4"
-            :stripe="true"
-            :fit="false"
-            @rowClick="rowClick"
-            @toggleRowSelection="toggleRowSelection"
-            @toggleAllSelection="toggleAllSelection"
-            :border="true"
-            @edit="buttonEdit"
-            @dele="dele"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
+<!--    <uni-card title="全部功能" >-->
+<!--      <view style="height: 300px">-->
+<!--        <zb-table-->
+<!--            @sort-change="sortChange"-->
+<!--            :pullUpLoading="pullUpLoading"-->
+<!--            :isShowLoadMore="true"-->
+<!--            :highlight="true"-->
+<!--            :show-header="true"-->
+<!--            :columns="column"-->
+<!--            :fit="false"-->
+<!--            row-key="id"-->
+<!--            @rowClick="rowClick"-->
+<!--            @toggleRowSelection="toggleRowSelection"-->
+<!--            @toggleAllSelection="toggleAllSelection"-->
+<!--            :border="true"-->
+<!--            @custom="custom"-->
+<!--            @edit="buttonEdit"-->
+<!--            @dele="dele"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
+<!--    <uni-card title="普通表格" >-->
+<!--      <view style="height: 200px">-->
+<!--        <zb-table-->
+<!--            :columns="column1"-->
+<!--            :stripe="true"-->
+<!--            @rowClick="rowClick"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
+<!--    <uni-card title="带边框表格" >-->
+<!--      <view style="height: 200px">-->
+<!--        <zb-table-->
+<!--            :columns="column1"-->
+<!--            :stripe="true"-->
+<!--            @rowClick="rowClick"-->
+<!--            :border="true"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
+<!--    <uni-card title="多选，多行数据时使用 Checkbox" >-->
+<!--      <view style="height: 200px">-->
+<!--        <zb-table-->
+<!--            :columns="column2"-->
+<!--            :stripe="true"-->
+<!--            @rowClick="rowClick"-->
+<!--            @toggleRowSelection="toggleRowSelection"-->
+<!--            @toggleAllSelection="toggleAllSelection"-->
+<!--            :border="true"-->
+<!--            @edit="buttonEdit"-->
+<!--            @dele="dele"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
+<!--    <uni-card title="固定多列和表头" >-->
+<!--      <view style="height: 200px">-->
+<!--        <zb-table-->
+<!--            :columns="column3"-->
+<!--            :stripe="true"-->
+<!--            @rowClick="rowClick"-->
+<!--            @toggleRowSelection="toggleRowSelection"-->
+<!--            @toggleAllSelection="toggleAllSelection"-->
+<!--            :border="true"-->
+<!--            @edit="buttonEdit"-->
+<!--            @dele="dele"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
+<!--    <uni-card title="年纪、日期排序" >-->
+<!--      <view style="height: 200px">-->
+<!--        <zb-table-->
+<!--            :show-header="true"-->
+<!--            :columns="column4"-->
+<!--            :stripe="true"-->
+<!--            :fit="false"-->
+<!--            @rowClick="rowClick"-->
+<!--            @toggleRowSelection="toggleRowSelection"-->
+<!--            @toggleAllSelection="toggleAllSelection"-->
+<!--            :border="true"-->
+<!--            @edit="buttonEdit"-->
+<!--            @dele="dele"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
 
-    <uni-card title="表尾合计" >
-      <view style="height: 300px">
-        <zb-table
-            :show-header="true"
-            :columns="column"
-            :fit="false"
-            :show-summary="true"
-            :summary-method="getSummaries"
-            @rowClick="rowClick"
-            @toggleRowSelection="toggleRowSelection"
-            @toggleAllSelection="toggleAllSelection"
-            :border="true"
-            @edit="buttonEdit"
-            @dele="dele"
-            :data="data1"></zb-table>
-      </view>
-    </uni-card>
+<!--    <uni-card title="表尾合计" >-->
+<!--      <view style="height: 300px">-->
+<!--        <zb-table-->
+<!--            :show-header="true"-->
+<!--            :columns="column"-->
+<!--            :fit="false"-->
+<!--            :show-summary="true"-->
+<!--            :summary-method="getSummaries"-->
+<!--            @rowClick="rowClick"-->
+<!--            @toggleRowSelection="toggleRowSelection"-->
+<!--            @toggleAllSelection="toggleAllSelection"-->
+<!--            :border="true"-->
+<!--            @edit="buttonEdit"-->
+<!--            @dele="dele"-->
+<!--            :data="data1"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
 
-    <uni-card title="上拉加载" >
-      <view style="height: 300px">
-        <zb-table
-            :show-header="true"
-            :columns="column"
-            :isShowLoadMore="true"
-            ref="zbTable"
-            @pullUpLoading="pullUpLoadingAction"
-            :summary-method="getSummaries"
-            @rowClick="rowClick"
-            @toggleRowSelection="toggleRowSelection"
-            @toggleAllSelection="toggleAllSelection"
-            :border="true"
-            @edit="buttonEdit"
-            @dele="dele"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
+<!--    <uni-card title="上拉加载" >-->
+<!--      <view style="height: 300px">-->
+<!--        <zb-table-->
+<!--            :show-header="true"-->
+<!--            :columns="column"-->
+<!--            :isShowLoadMore="true"-->
+<!--            ref="zbTable"-->
+<!--            @pullUpLoading="pullUpLoadingAction"-->
+<!--            :summary-method="getSummaries"-->
+<!--            @rowClick="rowClick"-->
+<!--            @toggleRowSelection="toggleRowSelection"-->
+<!--            @toggleAllSelection="toggleAllSelection"-->
+<!--            :border="true"-->
+<!--            @edit="buttonEdit"-->
+<!--            @dele="dele"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
 
 
-    <uni-card title="选择单行数据时使用色块表示" >
-      <view style="height: 300px">
-        <zb-table
-            :show-header="true"
-            :columns="column1"
-            @currentChange="currentChange"
-            :highlight="true"
-            :border="true"
-            :data="data"></zb-table>
-      </view>
-    </uni-card>
+<!--    <uni-card title="选择单行数据时使用色块表示" >-->
+<!--      <view style="height: 300px">-->
+<!--        <zb-table-->
+<!--            :show-header="true"-->
+<!--            :columns="column1"-->
+<!--            @currentChange="currentChange"-->
+<!--            :highlight="true"-->
+<!--            :border="true"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
 
-    <uni-card title="支持设置单元格样式" >
+<!--    <uni-card title="支持设置单元格样式" >-->
+<!--      <view style="height: 300px">-->
+<!--        <zb-table-->
+<!--            :cell-style="cellStyle"-->
+<!--            :show-header="true"-->
+<!--            :columns="column1"-->
+<!--            @currentChange="currentChange"-->
+<!--            :highlight="true"-->
+<!--            :border="true"-->
+<!--            :data="data"></zb-table>-->
+<!--      </view>-->
+<!--    </uni-card>-->
+
+    <uni-card title="支持多级表头设置" >
       <view style="height: 300px">
         <zb-table
             :cell-style="cellStyle"
             :show-header="true"
-            :columns="column1"
+            :columns="column5"
             @currentChange="currentChange"
             :highlight="true"
             :border="true"
@@ -152,7 +165,7 @@
 </template>
 
 <script>
-  import {column1,column2,column3,column4} from './all.js'
+  import {column1,column2,column3,column4,column5} from './all.js'
   let that = null
 	export default {
 		components:{
@@ -163,6 +176,7 @@
         column2,
         column3,
         column4,
+        column5,
 				title: 'Hello',
         column:[
           { type:'selection', fixed:true,width:60 },
@@ -337,9 +351,10 @@ img:"https://img.pddpic.com/mms-material-img/2020-11-27/84c7fad3-d945-4e71-ab09-
         ],
         data1:[],
         flag1:true,
-		flag2:true,
+		    flag2:true,
         num:0,
-		num1:0,
+		    num1:0,
+
         isShowLoadMore:true
 			}
 		},

@@ -17,11 +17,12 @@
 						height: 100%">
 	            <view class="zb-table-fixed" >
 	              <view class="zb-table-thead" style="position: relative;" >
-	                <view class="item-tr">
-	                  <view
-	                      @click.stop="sortAction(item,index)"
-	                      class="item-th"
-	                      :style="{
+
+                  <view class="item-tr">
+                    <view
+                        @click.stop="sortAction(item,index)"
+                        class="item-th"
+                        :style="{
 	                              width:`${item.width?item.width:'100'}px`,
 															  flex:index===transColumns.length-1?1:'none',
 															  minWidth:`${item.width?item.width:'100'}px`,
@@ -30,23 +31,45 @@
 															  borderTop:`${border?'1px solid #e8e8e8':''}`,
 															  textAlign:item.align||'left'
 														  }"
-	                      v-for="(item,index) in transColumns" :key="index">
-                      <template v-if="item.type==='selection'">
-                        <view class="checkbox-item">
-                          <tableCheckbox
-                              :indeterminate="indeterminate" :checked="checkedAll" @checkboxSelected="checkboxSelectedAll"></tableCheckbox>
-                        </view>
-                      </template>
-                      <template v-else>
-                        {{ item.label }}
-                        <view class="sorter-table" v-if="item.sorter">
-                          <view :class="['sorter-table-icon',item.sorterMode==='_asc'&&`sorting${item.sorterMode||''}`]"></view>
-                          <view :class="['sorter-table-icon',item.sorterMode==='_desc'&&`sorting${item.sorterMode||''}`]"></view>
-                        </view>
-                      </template>
+                        v-for="(item,index) in transColumns" :key="index">
+                      <table-header
+                          :border="border"
+                         :item="item"
+
+                      />
                     </view>
+                  </view>
+
+
+<!--	                  <view-->
+<!--	                      @click.stop="sortAction(item,index)"-->
+<!--	                      class="item-th"-->
+<!--	                      :style="{-->
+<!--	                              width:`${item.width?item.width:'100'}px`,-->
+<!--															  flex:index===transColumns.length-1?1:'none',-->
+<!--															  minWidth:`${item.width?item.width:'100'}px`,-->
+<!--															  borderRight:`${border?'1px solid #e8e8e8':''}`,-->
+<!--															  borderRight:`${!border&&scrollbarSize&&index===transColumns.length-1?'':'1px solid #e8e8e8'}`,-->
+<!--															  borderTop:`${border?'1px solid #e8e8e8':''}`,-->
+<!--															  textAlign:item.align||'left'-->
+<!--														  }"-->
+<!--	                      v-for="(item,index) in transColumns" :key="index">-->
+<!--                      <template v-if="item.type==='selection'">-->
+<!--                        <view class="checkbox-item">-->
+<!--                          <tableCheckbox-->
+<!--                              :indeterminate="indeterminate" :checked="checkedAll" @checkboxSelected="checkboxSelectedAll"></tableCheckbox>-->
+<!--                        </view>-->
+<!--                      </template>-->
+<!--                      <template v-else>-->
+<!--                        {{ item.label }}-->
+<!--                        <view class="sorter-table" v-if="item.sorter">-->
+<!--                          <view :class="['sorter-table-icon',item.sorterMode==='_asc'&&`sorting${item.sorterMode||''}`]"></view>-->
+<!--                          <view :class="['sorter-table-icon',item.sorterMode==='_desc'&&`sorting${item.sorterMode||''}`]"></view>-->
+<!--                        </view>-->
+<!--                      </template>-->
+<!--                    </view>-->
+
 	                </view>
-	              </view>
 	            </view>
 	          </scroll-view>
 	        </view>
@@ -379,6 +402,7 @@ import TableSummary from "./components/table-summary.vue";
 import TableSideSummary from "./components/table-side-summary.vue";
 import TableH5Summary from './components/table-h5-summary'
 import ZbLoadMore from './components/zb-load-more'
+import TableHeader from './components/table-header'
 
 import {getScrollbarSize} from "./js/util";
 export default {
@@ -387,7 +411,8 @@ export default {
     TableSummary,
     TableSideSummary,
     TableH5Summary,
-    ZbLoadMore
+    ZbLoadMore,
+    TableHeader
   },
   props:{
     highlight:{
@@ -1036,9 +1061,10 @@ export default {
     overflow: hidden;
     background: #fafafa;
     .item-th{
-      padding-left: 8px;
-      line-height: 39px;
-      height: 40px;
+      //padding-left: 8px;
+      //line-height: 39px;
+      //height: 40px;
+      //height: 100%;
       //display: flex;
       //align-items: center;
       box-sizing: border-box;
@@ -1216,6 +1242,6 @@ export default {
   }
 }
 .zb-table-header{
-  height: 40px;
+  //height: 40px;
 }
 </style>

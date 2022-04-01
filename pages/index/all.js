@@ -46,3 +46,21 @@ export const column4 = [
 ]
 
 
+export const column5 = [
+    { name: 'date', label: '日期' },
+    {
+        label:'配送信息',
+        children:[
+            { name: 'name', label: '姓名',width:80,emptyString:'--' },
+            {
+                label:'地址',
+                children:[
+                    { name: 'province', label: '省份' },
+                    { name: 'city', label: '城市' },
+                    { name: 'zip', label: '邮编' },
+                ]
+            }
+        ]
+    },
+]
+
