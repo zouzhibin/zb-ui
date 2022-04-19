@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="be7958c3-0d1c-4f74-a433-b590462e7034" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni_modules/zb-table/components/zb-table/components/zb-load-more.vue" beforeDir="false" afterPath="$PROJECT_DIR$/uni_modules/zb-table/components/zb-table/components/zb-load-more.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uni_modules/zb-table/components/zb-table/components/zb-loading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/uni_modules/zb-table/components/zb-table/components/zb-loading.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="zb-table" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,7 +105,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/pages/index/index.vue</url>
-          <line>352</line>
+          <line>353</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
