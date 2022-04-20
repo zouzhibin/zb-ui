@@ -25,7 +25,7 @@ export const column5 = [
 
 
 export const column1 = [
-    { type:'index', width:60 ,label: '序号',},
+    { type:'index', width:60 ,label: '序号',fixed:true},
     { name: 'name', label: '姓名',width:80,emptyString:'--' },
     { name: 'age', label: '年纪',},
     { name: 'sex', label: '性别',filters:{0:'男',1:'女'}},

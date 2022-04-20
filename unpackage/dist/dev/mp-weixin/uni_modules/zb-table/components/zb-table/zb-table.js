@@ -743,7 +743,8 @@ var _util = __webpack_require__(/*! ./js/util */ 42);function _interopRequireDef
               str += item.name;
             });
             if (column.name) {
-              column.width = _this.getTextWidth(str) + column.renders.length * 40;
+              _this.$set(column, 'width', _this.getTextWidth(str) + column.renders.length * 40);
+              // column.width = this.getTextWidth(str)+column.renders.length*40
             }
           } else if (column.type === "img") {
           } else if (column.type === "selection") {
@@ -759,7 +760,8 @@ var _util = __webpack_require__(/*! ./js/util */ 42);function _interopRequireDef
               }
             });
             if (column.name) {
-              column.width = Math.max.apply(Math, arr) + 20;
+              _this.$set(column, 'width', Math.max.apply(Math, arr) + 20);
+              // column.width = Math.max(...arr)+20
             }
           }
         });
@@ -774,7 +776,8 @@ var _util = __webpack_require__(/*! ./js/util */ 42);function _interopRequireDef
           item.renders.map(function (item) {
             str += item.name;
           });
-          item.width = _this.getTextWidth(str) + item.renders.length * 40;
+          _this.$set(column, 'width', _this.getTextWidth(str) + item.renders.length * 40);
+          // item.width = this.getTextWidth(str)+item.renders.length*40
         }
         if (item.fixed) {
           if (index === 0) {
@@ -788,12 +791,14 @@ var _util = __webpack_require__(/*! ./js/util */ 42);function _interopRequireDef
         item.emptyString = item.emptyString || '--';
       });
       var realColumns = this.renderRealColumns(this.columns);
+      console.log(this.columns);
       return {
         columns: this.columns,
         realColumns: realColumns };
 
     },
     transData: function transData() {var _this2 = this;
+      console.log('this.data=====', this.data);
       var flag = this.columns.some(function (item) {return item.type === 'selection';});
       this.data.forEach(function (item, index) {
         if (flag) {
@@ -823,6 +828,7 @@ var _util = __webpack_require__(/*! ./js/util */ 42);function _interopRequireDef
           }
         }
       }
+
       return this.data;
     },
     textPosition: function textPosition() {

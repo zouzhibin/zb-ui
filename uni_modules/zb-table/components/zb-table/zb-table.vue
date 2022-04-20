@@ -532,7 +532,8 @@ export default {
               str+=item.name
             })
             if(column.name){
-              column.width = this.getTextWidth(str)+column.renders.length*40
+              this.$set(column,'width',this.getTextWidth(str)+column.renders.length*40)
+              // column.width = this.getTextWidth(str)+column.renders.length*40
             }
           }else if(column.type==="img"){
 			   }else if(column.type==="selection"){
@@ -548,7 +549,8 @@ export default {
               }
                   })
             if(column.name){
-              column.width = Math.max(...arr)+20
+              this.$set(column,'width',Math.max(...arr)+20)
+              // column.width = Math.max(...arr)+20
             }
                 }
               })
@@ -563,7 +565,8 @@ export default {
           item.renders.map((item)=>{
             str+=item.name
           })
-          item.width = this.getTextWidth(str)+item.renders.length*40
+          this.$set(item,'width',this.getTextWidth(str)+item.renders.length*40)
+          // item.width = this.getTextWidth(str)+item.renders.length*40
         }
         if(item.fixed){
           if(index===0){
@@ -577,12 +580,14 @@ export default {
         item.emptyString = item.emptyString||'--'
       })
       let realColumns = this.renderRealColumns(this.columns)
+      console.log(this.columns)
       return {
         columns:this.columns,
         realColumns:realColumns
       }
     },
     transData(){
+      console.log('this.data=====',this.data)
       let flag = this.columns.some(item=>item.type==='selection')
       this.data.forEach((item,index)=>{
         if(flag){
@@ -612,6 +617,7 @@ export default {
           }
         }
       }
+
       return this.data
     },
     textPosition(){
@@ -1323,6 +1329,9 @@ export default {
   .item-td{
     background-color: #ecf5ff;
   }
+}
+.zb-table-scroll{
+  //width: fit-content;
 }
 //.zb-table-header{
 //  height: 40px;

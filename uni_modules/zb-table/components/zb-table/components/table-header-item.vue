@@ -18,7 +18,8 @@
 				  <!-- #ifdef H5 || APP-PLUS -->
                   borderRight:`${(scrollbarSize&&wrapIndex===transColumns.length-1)?'':border?'1px solid #e8e8e8':''}`,
 				  <!-- #endif -->
-                  borderBottom:`${border?'1px solid #e8e8e8':''}`,
+                  // borderBottom:`${border?'1px solid #e8e8e8':''}`,
+                  borderBottom:`1px solid #e8e8e8`,
                   justifyContent:textPosition(item)
 
                 },getCellStyle(item,wrapIndex)]"
@@ -74,7 +75,6 @@
       TableCheckbox
     },
     props:{
-
       item:{
         type:Object,
         default:()=>{}
